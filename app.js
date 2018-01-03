@@ -1,21 +1,3 @@
-// normal function statement
-function sayHi() {
-    console.log('hi!');
-}
+var counter = require('./count');
 
-sayHi();
-
-// function expression
-var sayBye = function () {
-    console.log('bye!');
-};
-
-sayBye();
-
-// call function inside another function
-function callFunction(fun) {
- fun();
-}
-
-callFunction(sayHi);
-callFunction(sayBye);
+console.log(counter(['bob', 'july', 'agatha']));
