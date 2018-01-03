@@ -1,13 +1,21 @@
-var time = 0;
+// normal function statement
+function sayHi() {
+    console.log('hi!');
+}
 
-var timer = setInterval(function () {
-    time += 2;
-    console.log(time + ' seconds have passed...');
+sayHi();
 
-    if (time > 5 ) {
-        clearInterval(timer);
-    }
-}, 2000);
+// function expression
+var sayBye = function () {
+    console.log('bye!');
+};
 
-console.log(__dirname); // shows the current directory
-console.log(__filename); // shows the current file
+sayBye();
+
+// call function inside another function
+function callFunction(fun) {
+ fun();
+}
+
+callFunction(sayHi);
+callFunction(sayBye);
