@@ -5,10 +5,14 @@ var fs = require('fs');
 // creating a read stream and specifying which file to read
 var myReadStream = fs.createReadStream(__dirname + '/lorem.txt', 'utf8');
 
+// creating a writable
+var myWriteStream = fs.createWriteStream(__dirname + '/lorem-II.txt');
+
 // filling the buffer
 myReadStream.on('data', function (chunk) {
-    console.log('new chunk received: ');
-    console.log(chunk);
+    console.log('new chunk received...');
+    // every time a data is received, write to the file (lorem-II.txt)
+    myWriteStream.write(chunk);
 });
 
 // // storing the server method in variable
