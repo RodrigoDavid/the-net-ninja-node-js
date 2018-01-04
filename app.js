@@ -1,22 +1,20 @@
-var fs = require('fs');
+// requiring the node http module
+var http = require('http');
 
-// delete a file using fs
-// fs.unlink('writeme.txt');
+// storing the server method in variable
+var server = http.createServer(function (req, res) {
+    // when a request is made by the client, this function is executed
+    // writing response headers
+    res.writeHead(200, {'Content-Type' : 'text/plain'});
 
-// creating a directory synchronously
-// fs.mkdirSync('stuff');
+    // log the request url to the console
+    console.log('request url: ' + req.url);
 
-// deleting a directory synchronously
-// fs.rmdirSync('stuff');
+    // end the response and send it to the browser
+    res.end('Sending just this plain text...');
+});
 
-// creating a directory asynchronously
-// fs.mkdir('stuff', function () {
-//     fs.readFile('readme.txt', 'utf8', function (err, data ) {
-//         fs.writeFileSync('./stuff/writeme.txt', data);
-//     });
-// });
+// specifying a port to listen to
+server.listen(3000, '127.0.0.1');
 
-// you can't just remove a directory, you have to remove the stuff inside it
-// fs.unlink('./stuff/writeme.txt', function () {
-//     fs.rmdirSync('stuff');
-// });
+console.log('Listening on port 3000...');
