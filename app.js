@@ -1,33 +1,20 @@
-var events = require('events');
-var util = require('util');
+var fs = require('fs');
 
-// Event emmiter
-var myEmmiter = new events.EventEmitter();
+// reading a file synchronously
+// first: name of the file;
+// second: encoding.
+var readme = fs.readFileSync('readme.txt', 'utf8');
 
-myEmmiter.on('someEvent', function (msg) {
-    console.log(msg);
+// writing a file synchronously
+// first: name of the file;
+// second: content of the file.
+fs.writeFileSync('writeme.txt', readme);
+
+// reading a file asynchronously
+// this version don't block the code
+var readme = fs.readFile('readme.txt', 'utf8', function (err, data) {
+    console.log(data);
+    fs.writeFileSync('secondfile.txt', data);
 });
 
-myEmmiter.emit('someEvent', 'The event was emmited!');
-
-// Using util module
-var Person = function (name) {
-  this.name = name;
-};
-
-// Inherit the event emmiter
-util.inherits(Person, events.EventEmitter);
-
-var james = new Person('James');
-var bob = new Person('Bob');
-var july = new Person('July');
-var people = [james, bob, july];
-
-people.forEach(function (person) {
-    person.on('speak', function (msg) {
-        console.log(person.name + ' said: ' + msg);
-    });
-});
-
-james.emit('speak', 'Suh, dudes!');
-july.emit('speak', 'Yeaaah!');
+console.log('This text will appear first than line 16');
