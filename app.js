@@ -6,13 +6,13 @@ var fs = require('fs');
 var server = http.createServer(function (req, res) {
     // when a request is made by the client, this function is executed
     // writing response headers
-    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.writeHead(200, {'Content-Type': 'text/html'});
 
     // log the request url to the console
     console.log('request url: ' + req.url);
 
     // creating a read stream and specifying which file to read
-    var myReadStream = fs.createReadStream(__dirname + '/lorem.txt', 'utf8');
+    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
 
     // piping from a readable stream to a writable stream
     myReadStream.pipe(res);
