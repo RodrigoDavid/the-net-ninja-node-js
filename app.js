@@ -6,16 +6,16 @@ var fs = require('fs');
 var server = http.createServer(function (req, res) {
     // when a request is made by the client, this function is executed
     // writing response headers
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.writeHead(200, {'Content-Type': 'application/json'});
 
-    // log the request url to the console
-    console.log('request url: ' + req.url);
+    // creating an object to send to the client
+    var myAwesomeObject = {
+        name: 'James',
+        job: 'Ninja',
+        age: 27
+    };
 
-    // creating a read stream and specifying which file to read
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-
-    // piping from a readable stream to a writable stream
-    myReadStream.pipe(res);
+    res.end(JSON.stringify(myAwesomeObject));
 });
 
 // specifying a port to listen to
