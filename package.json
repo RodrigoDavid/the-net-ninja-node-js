@@ -1,0 +1,22 @@
+{
+  "name": "the-net-ninja-node",
+  "version": "1.0.0",
+  "description": "Repository for codes used on the Node JS Tutorial for Beginners from The Net Ninja - https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoDavid/the-net-ninja-node-js.git"
+  },
+  "author": "Rodrigo Reis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodrigoDavid/the-net-ninja-node-js/issues"
+  },
+  "homepage": "https://github.com/RodrigoDavid/the-net-ninja-node-js#readme",
+  "dependencies": {
+    "express": "4.16.2"
+  }
+}
